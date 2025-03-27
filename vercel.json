@@ -1,6 +1,5 @@
 {
-    "framework": null,
-    "buildCommand": "node vercel-builder.js",
+    "buildCommand": "./vercel-build.sh",
     "outputDirectory": "dist",
     "rewrites": [
         {

@@ -2,18 +2,9 @@
   "name": "neurospark",
   "private": true,
   "version": "0.1.0",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "dev:web": "yarn workspace @neurospark/web dev",
-    "dev:ios": "yarn workspace @neurospark/ios dev",
-    "build:web": "yarn workspace @neurospark/web build",
-    "build:ios": "yarn workspace @neurospark/ios build",
-    "lint": "eslint .",
     "dev": "vite",
-    "build": "node build.js",
-    "vercel-build": "node vercel-builder.js",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {

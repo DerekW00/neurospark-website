@@ -18,9 +18,11 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist",
+    emptyOutDir: true,
     sourcemap: mode === 'development',
   },
-  root: process.cwd(),
+  root: ".",
+  publicDir: "public",
   // Include specific environment variables that should be exposed to the client
   define: {
     'process.env.VITE_API_BASE_URL': JSON.stringify(process.env.VITE_API_BASE_URL),
