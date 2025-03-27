@@ -73,45 +73,35 @@ cp .env.example .env
 npm run dev
 ```
 
-## Azure Deployment
+## Vercel Deployment
 
-### Frontend Deployment (Static Web App)
+### Deployment Steps
 
-1. Create an Azure Static Web App in the Azure portal.
+1. Connect your GitHub repository to Vercel.
 
-2. Configure the build settings:
+2. Configure the project settings:
    - Build Command: `npm run build`
-   - Output Location: `dist`
-   - API Location: `azure-function` (if deploying functions with the web app)
+   - Output Directory: `dist`
+   - Install Command: `npm install`
 
-3. Connect your GitHub repository for CI/CD deployment.
+3. Add environment variables from your `.env` file to your Vercel project settings.
 
-### Backend Deployment (Azure Functions)
+4. Deploy your application. Vercel will automatically build and deploy your application whenever you push to your default branch.
 
-1. Navigate to the `azure-function` folder:
-```bash
-cd azure-function
-```
+### API Endpoints
 
-2. Install Azure Functions Core Tools if not already installed:
-```bash
-npm install -g azure-functions-core-tools@4
-```
+This project uses Vercel Serverless Functions for backend functionality. The API endpoints are located in the `api` directory.
 
-3. Create a Function App in Azure portal.
+Available endpoints:
+- `/api/subscribe` - Handles form submissions for waitlist signups
 
-4. Deploy the function app:
-```bash
-func azure functionapp publish YOUR_FUNCTION_APP_NAME
-```
-
-5. Configure environment variables in the Azure portal for your Function App.
+See the `api/README.md` file for more details about API endpoints.
 
 ## Environment Configuration
 
 Important environment variables:
 
-- `VITE_API_BASE_URL`: URL for your Azure Function API
+- `VITE_API_BASE_URL`: URL for your API (defaults to `/api` for Vercel deployment)
 - `VITE_ENABLE_ANALYTICS`: Enable/disable analytics
 - `VITE_APP_VERSION`: Application version
 

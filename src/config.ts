@@ -3,7 +3,7 @@
  */
 
 // Environment configuration
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://neurospark-api.azurewebsites.net/api';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 // Feature flags
 export const ENABLE_ANALYTICS = import.meta.env.VITE_ENABLE_ANALYTICS === 'true';
