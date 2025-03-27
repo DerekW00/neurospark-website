@@ -1,4 +1,5 @@
-export default async function handler(req, res) {
+// Handler for Vercel serverless function
+module.exports = async (req, res) => {
     // Only allow POST method
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });

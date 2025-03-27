@@ -12,8 +12,8 @@
     "build:ios": "yarn workspace @neurospark/ios build",
     "lint": "eslint .",
     "dev": "vite",
-    "build": "vite build --emptyOutDir",
-    "vercel-build": "vite build --emptyOutDir",
+    "build": "node build.js",
+    "vercel-build": "node vercel-builder.js",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -21,7 +21,12 @@
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^8.0.1"
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2"
   },
-  "type": "module"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }

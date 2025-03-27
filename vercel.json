@@ -1,24 +1,15 @@
 {
-    "version": 2,
-    "buildCommand": "npm run build",
+    "framework": null,
+    "buildCommand": "node vercel-builder.js",
     "outputDirectory": "dist",
-    "framework": "vite",
-    "functions": {
-        "api/*.js": {
-            "maxDuration": 10
-        }
-    },
-    "routes": [
+    "rewrites": [
         {
-            "src": "/api/(.*)",
-            "dest": "/api/$1.js"
+            "source": "/api/(.*)",
+            "destination": "/api/$1"
         },
         {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/index.html"
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }
