@@ -28,21 +28,22 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Company</h3>
+            <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Demos</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-              <li><Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">Blog</Link></li>
-              <li><Link to="/careers" className="text-muted-foreground hover:text-foreground transition-colors">Careers</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+              <li><Link to="/demo" className="text-muted-foreground hover:text-foreground transition-colors">Video Demos</Link></li>
+              <li><Link to="/interactive-demo" className="text-muted-foreground hover:text-foreground transition-colors">Interactive Demo</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact Sales</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Legal</h3>
+            <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Company</h3>
             <ul className="space-y-3">
-              <li><Link to="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link></li>
-              <li><Link to="/cookie-policy" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link></li>
+              <li><a href="https://neurospark.ai/about" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a></li>
+              <li><a href="https://neurospark.ai/blog" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+              <li><a href="https://neurospark.ai/privacy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a></li>
+              <li><a href="https://neurospark.ai/terms" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>

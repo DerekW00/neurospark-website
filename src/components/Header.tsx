@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Brain, Calendar, Home, MessageSquare, Settings, User } from 'lucide-react';
+import { Brain, CreditCard, Play, Info, HelpCircle, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 
@@ -18,73 +18,71 @@ const Header = () => {
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link to="/dashboard">
+              <Link to="/features">
                 <Button variant="ghost" size="sm" className="text-muted-foreground">
-                  <Home className="mr-2 h-4 w-4" />
-                  Dashboard
+                  <Info className="mr-2 h-4 w-4" />
+                  Features
                 </Button>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/create-commitment">
+              <Link to="/how-it-works">
                 <Button variant="ghost" size="sm" className="text-muted-foreground">
                   <Brain className="mr-2 h-4 w-4" />
-                  Create
+                  How It Works
                 </Button>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/calendar">
-                <Button variant="ghost" size="sm" className="text-muted-foreground">
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Calendar
-                </Button>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link to="/ai-coach">
-                <Button variant="ghost" size="sm" className="text-muted-foreground">
-                  <MessageSquare className="mr-2 h-4 w-4" />
-                  AI Coach
-                </Button>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Demos</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="grid gap-3 p-4 w-[400px]">
-                  <Link to="/how-it-works" className="block p-3 space-y-1 rounded-md hover:bg-accent">
-                    <div className="font-medium">How It Works</div>
+                  <Link to="/demo" className="block p-3 space-y-1 rounded-md hover:bg-accent">
+                    <div className="font-medium">Video Demos</div>
                     <p className="text-sm text-muted-foreground">
-                      Learn how NeuroSpark helps you stay on track
+                      Watch NeuroSpark in action with guided demos
                     </p>
                   </Link>
-                  <Link to="/features" className="block p-3 space-y-1 rounded-md hover:bg-accent">
-                    <div className="font-medium">Features</div>
+                  <Link to="/interactive-demo" className="block p-3 space-y-1 rounded-md hover:bg-accent">
+                    <div className="font-medium">Interactive Demo</div>
                     <p className="text-sm text-muted-foreground">
-                      Discover all the tools designed for your ADHD brain
-                    </p>
-                  </Link>
-                  <Link to="/faq" className="block p-3 space-y-1 rounded-md hover:bg-accent">
-                    <div className="font-medium">FAQ</div>
-                    <p className="text-sm text-muted-foreground">
-                      Find answers to frequently asked questions
+                      Try out NeuroSpark's core features yourself
                     </p>
                   </Link>
                 </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/pricing">
+                <Button variant="ghost" size="sm" className="text-muted-foreground">
+                  <CreditCard className="mr-2 h-4 w-4" />
+                  Pricing
+                </Button>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/faq">
+                <Button variant="ghost" size="sm" className="text-muted-foreground">
+                  <HelpCircle className="mr-2 h-4 w-4" />
+                  FAQ
+                </Button>
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
         <div className="flex space-x-2">
-          <Link to="/settings">
+          <Link to="/contact">
             <Button variant="ghost" size="sm" className="text-muted-foreground">
-              <Settings className="h-5 w-5" />
+              <MessageSquare className="h-5 w-5" />
+              <span className="ml-2 hidden sm:inline">Contact</span>
             </Button>
           </Link>
-          <Link to="/sign-in">
-            <Button size="sm">Sign In</Button>
+          <Link to="/interactive-demo">
+            <Button size="sm" className="bg-primary">
+              <Play className="mr-2 h-4 w-4" />
+              Try Now
+            </Button>
           </Link>
         </div>
       </div>
