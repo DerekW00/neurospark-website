@@ -1,5 +1,8 @@
-// Handler for Vercel serverless function
-module.exports = async (req, res) => {
+// Subscription handler
+const handler = require('./_handler');
+
+// Form submission handler
+const subscribeHandler = async (req, res) => {
     // Only allow POST method
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Method not allowed' });
@@ -47,10 +50,13 @@ module.exports = async (req, res) => {
         console.error('Error processing form submission:', error);
         return res.status(500).json({ message: 'Internal server error' });
     }
-}
+};
 
 // Helper function to validate email
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
-} 
+}
+
+// Export with error handling wrapper
+module.exports = handler(subscribeHandler); 
