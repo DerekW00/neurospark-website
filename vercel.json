@@ -1,5 +1,8 @@
 {
     "version": 2,
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "framework": "vite",
     "functions": {
         "api/*.js": {
             "maxDuration": 10
@@ -9,7 +12,13 @@
         {
             "src": "/api/(.*)",
             "dest": "/api/$1.js"
+        },
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
-    ],
-    "outputDirectory": "dist"
+    ]
 }

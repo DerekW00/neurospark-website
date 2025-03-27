@@ -12,7 +12,8 @@
     "build:ios": "yarn workspace @neurospark/ios build",
     "lint": "eslint .",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
+    "vercel-build": "vite build --emptyOutDir",
     "preview": "vite preview"
   },
   "devDependencies": {
