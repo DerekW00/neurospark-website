@@ -25,7 +25,7 @@ const HowItWorksPage = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="lg">
-                <Link to="/interactive-demo">
+                <Link to="/try-it-now">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -232,8 +232,8 @@ const HowItWorksPage = () => {
               Experience the benefits of personalized ADHD coaching at a fraction of the cost. We'll help you break down tasks, stay accountable, and actually finish what you start.
             </p>
             <Button asChild size="lg">
-              <Link to="/sign-up">
-                Get Started Today
+              <Link to="/waitlist">
+                Join Our Waitlist
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

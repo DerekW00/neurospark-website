@@ -90,7 +90,7 @@ const FAQ = () => {
                 Didn't find what you're looking for? We're here to help.
               </p>
               <Button asChild variant="outline">
-                <a href="mailto:support@neurospark.app">
+                <a href="mailto:derekderuiwang@gmail.com">
                   Contact Support
                 </a>
               </Button>
@@ -108,8 +108,8 @@ const FAQ = () => {
               Join thousands of users who are transforming how they tackle their goals.
             </p>
             <Button asChild size="lg">
-              <Link to="/sign-up">
-                Get Started For Free
+              <Link to="/waitlist">
+                Join Our Waitlist
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

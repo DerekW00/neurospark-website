@@ -49,8 +49,8 @@ const ComingSoon = ({
                             </Link>
                         </Button>
                         <Button asChild variant="outline" size="lg">
-                            <Link to="/contact">
-                                Contact Us
+                            <Link to="/waitlist">
+                                Join Waitlist
                             </Link>
                         </Button>
                     </div>

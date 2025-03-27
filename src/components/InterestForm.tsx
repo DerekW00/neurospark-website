@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Loader2 } from 'lucide-react';
+import { CheckCircle2, Loader2, AlertCircle, Smartphone } from 'lucide-react';
+import { ENDPOINTS } from '@/config';
 
 // Define the schema for the form
 const formSchema = z.object({
@@ -24,12 +25,13 @@ interface InterestFormProps {
 }
 
 const InterestForm = ({
-    title = "Interested in NeuroSpark?",
-    description = "Leave your details and we'll keep you updated on our progress.",
+    title = "Join the NeuroSpark Waitlist",
+    description = "Our exclusive mobile app is in high demand! Reserve your spot now and be among the first to experience this game-changing ADHD tool on your smartphone.",
     onSubmitCallback
 }: InterestFormProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
@@ -42,25 +44,35 @@ const InterestForm = ({
 
     const onSubmit = async (data: FormValues) => {
         setIsSubmitting(true);
+        setError(null);
 
         try {
-            // Simulate API call with a delay
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // Submit to Azure Function endpoint
+            const response = await fetch(ENDPOINTS.SUBSCRIBE, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...data,
+                    submittedAt: new Date().toISOString(),
+                }),
+            });
 
-            // Submit to actual backend service
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to submit form');
+            }
+
+            // Run callback if provided
             if (onSubmitCallback) {
                 onSubmitCallback(data);
-            } else {
-                // Default implementation to store in localStorage (for demonstration)
-                const interests = JSON.parse(localStorage.getItem('interests') || '[]');
-                interests.push({ ...data, submittedAt: new Date().toISOString() });
-                localStorage.setItem('interests', JSON.stringify(interests));
             }
 
             setIsSubmitted(true);
         } catch (error) {
             console.error("Error submitting form:", error);
-            // You could add error handling here
+            setError(error instanceof Error ? error.message : 'Failed to submit form. Please try again later.');
         } finally {
             setIsSubmitting(false);
         }
@@ -69,21 +81,30 @@ const InterestForm = ({
     return (
         <Card className="w-full max-w-md mx-auto">
             <CardHeader>
-                <CardTitle>{title}</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                    {title}
+                    <Smartphone className="h-5 w-5 text-primary" />
+                </CardTitle>
                 <CardDescription>{description}</CardDescription>
             </CardHeader>
             <CardContent>
                 {isSubmitted ? (
                     <div className="flex flex-col items-center justify-center py-6 text-center">
                         <CheckCircle2 className="w-12 h-12 text-green-500 mb-4" />
-                        <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
+                        <h3 className="text-xl font-semibold mb-2">You're on the List!</h3>
                         <p className="text-muted-foreground">
-                            We've received your information and will be in touch soon.
+                            Thanks for joining our exclusive waitlist! We'll notify you as soon as you've been granted access to the NeuroSpark mobile app.
                         </p>
                     </div>
                 ) : (
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                            {error && (
+                                <div className="p-3 mb-3 text-sm bg-destructive/10 text-destructive rounded-md flex items-center">
+                                    <AlertCircle className="h-4 w-4 mr-2" />
+                                    {error}
+                                </div>
+                            )}
                             <FormField
                                 control={form.control}
                                 name="name"
@@ -123,14 +144,17 @@ const InterestForm = ({
                                     </FormItem>
                                 )}
                             />
+                            <div className="text-sm text-muted-foreground mb-2">
+                                <p>Join thousands of others waiting to transform their productivity with our mobile app. Limited spots available!</p>
+                            </div>
                             <Button type="submit" className="w-full" disabled={isSubmitting}>
                                 {isSubmitting ? (
                                     <>
                                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                        Please wait
+                                        Securing your spot...
                                     </>
                                 ) : (
-                                    "Stay Updated"
+                                    "Reserve My Spot"
                                 )}
                             </Button>
                         </form>
@@ -141,4 +165,4 @@ const InterestForm = ({
     );
 };
 
-export default InterestForm; 
+export default InterestForm;

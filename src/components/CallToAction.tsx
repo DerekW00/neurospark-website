@@ -15,8 +15,8 @@ const CallToAction = () => {
               Experience the benefits of personalized ADHD coaching at a fraction of the cost. Get the accountability, support, and structure your brain needs.
             </p>
             <Button asChild size="lg" className="group">
-              <Link to="/interactive-demo">
-                Start Your Coaching Journey
+              <Link to="/try-it-now">
+                Try It Free Now
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -24,8 +24,8 @@ const CallToAction = () => {
 
           <div>
             <InterestForm
-              title="Stay in the Loop"
-              description="Join our waiting list to be notified when we launch and receive exclusive early access."
+              title="Join Our Limited Waitlist"
+              description="Our exclusive mobile app is coming soon. Secure your spot now for early access when we launch."
             />
           </div>
         </div>

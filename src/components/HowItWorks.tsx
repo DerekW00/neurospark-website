@@ -37,16 +37,8 @@ const HowItWorks = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <div className="flex items-center">
-                <div className="text-5xl font-bold text-primary/20">{step.number}</div>
-
-                {/* Connector line to the next step */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block h-px bg-primary/20 flex-grow ml-4" />
-                )}
-              </div>
-
-              <h3 className="text-xl font-semibold mt-2 mb-3">{step.title}</h3>
+              <div className="text-5xl font-bold text-primary/20 mb-3">{step.number}</div>
+              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
               <p className="text-muted-foreground">{step.description}</p>
             </div>
           ))}

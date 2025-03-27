@@ -29,7 +29,7 @@ const Home = () => {
                                 </p>
                                 <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                                     <Button asChild size="lg">
-                                        <Link to="/interactive-demo">
+                                        <Link to="/try-it-now">
                                             Try It Now
                                             <ArrowRight className="ml-2 h-4 w-4" />
                                         </Link>
@@ -113,7 +113,7 @@ const Home = () => {
                                     <p className="italic">
                                         "As someone with ADHD, I was tired of productivity tools that didn't understand how my brain works. Traditional coaches were helpful but expensive. We built NeuroSpark to provide that same personalized support at a price anyone can afford."
                                     </p>
-                                    <p className="font-medium">- The NeuroSpark Team</p>
+                                    <p className="font-medium">- Derui (Derek) Wang</p>
                                 </div>
                             </div>
                             <div className="flex-1 flex justify-center">

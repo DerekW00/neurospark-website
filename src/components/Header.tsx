@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Brain, CreditCard, Play, Info, HelpCircle, MessageSquare, Calendar, Menu, X } from 'lucide-react';
+import { Brain, CreditCard, Info, HelpCircle, MessageSquare, Menu, X, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 
@@ -43,23 +43,12 @@ const Header = () => {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Experience It</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="grid gap-3 p-4 w-[400px]">
-                  <Link to="/demo" className="block p-3 space-y-1 rounded-md hover:bg-accent">
-                    <div className="font-medium">Coach Demos</div>
-                    <p className="text-sm text-muted-foreground">
-                      See how your commitment coach helps you stay on track
-                    </p>
-                  </Link>
-                  <Link to="/interactive-demo" className="block p-3 space-y-1 rounded-md hover:bg-accent">
-                    <div className="font-medium">Try Your Coach</div>
-                    <p className="text-sm text-muted-foreground">
-                      Experience accountability coaching with our interactive demo
-                    </p>
-                  </Link>
-                </div>
-              </NavigationMenuContent>
+              <Link to="/try-it-now">
+                <Button variant="ghost" size="sm" className="text-muted-foreground">
+                  <Sparkles className="mr-2 h-4 w-4" />
+                  Try It Free
+                </Button>
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link to="/pricing">
@@ -77,23 +66,16 @@ const Header = () => {
                 </Button>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link to="/waitlist">
+                <Button variant="ghost" size="sm" className="text-muted-foreground">
+                  <MessageSquare className="h-5 w-5" />
+                  <span className="ml-2 hidden sm:inline">Join Waitlist</span>
+                </Button>
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-
-        <div className="hidden md:flex space-x-2">
-          <Link to="/contact">
-            <Button variant="ghost" size="sm" className="text-muted-foreground">
-              <MessageSquare className="h-5 w-5" />
-              <span className="ml-2 hidden sm:inline">Contact</span>
-            </Button>
-          </Link>
-          <Link to="/interactive-demo">
-            <Button size="sm" className="bg-primary">
-              <Calendar className="mr-2 h-4 w-4" />
-              Try Your Coach
-            </Button>
-          </Link>
-        </div>
 
         <div className="md:hidden flex items-center">
           <Button variant="ghost" size="icon" onClick={toggleMobileMenu} aria-label="Toggle menu">
@@ -113,13 +95,9 @@ const Header = () => {
             <Brain className="mr-2 h-5 w-5 text-primary" />
             <span>How Coaching Works</span>
           </Link>
-          <Link to="/demo" className="flex items-center p-2 hover:bg-accent rounded-md" onClick={toggleMobileMenu}>
-            <Play className="mr-2 h-5 w-5 text-primary" />
-            <span>Coach Demos</span>
-          </Link>
-          <Link to="/interactive-demo" className="flex items-center p-2 hover:bg-accent rounded-md" onClick={toggleMobileMenu}>
-            <Calendar className="mr-2 h-5 w-5 text-primary" />
-            <span>Try Your Coach</span>
+          <Link to="/try-it-now" className="flex items-center p-2 hover:bg-accent rounded-md" onClick={toggleMobileMenu}>
+            <Sparkles className="mr-2 h-5 w-5 text-primary" />
+            <span>Try It Free</span>
           </Link>
           <Link to="/pricing" className="flex items-center p-2 hover:bg-accent rounded-md" onClick={toggleMobileMenu}>
             <CreditCard className="mr-2 h-5 w-5 text-primary" />
@@ -129,17 +107,10 @@ const Header = () => {
             <HelpCircle className="mr-2 h-5 w-5 text-primary" />
             <span>FAQ</span>
           </Link>
-          <Link to="/contact" className="flex items-center p-2 hover:bg-accent rounded-md" onClick={toggleMobileMenu}>
+          <Link to="/waitlist" className="flex items-center p-2 hover:bg-accent rounded-md" onClick={toggleMobileMenu}>
             <MessageSquare className="mr-2 h-5 w-5 text-primary" />
-            <span>Contact</span>
+            <span>Join Waitlist</span>
           </Link>
-          <div className="pt-2 border-t border-border">
-            <Button asChild className="w-full" size="sm">
-              <Link to="/interactive-demo" onClick={toggleMobileMenu}>
-                Try Your Coach Now
-              </Link>
-            </Button>
-          </div>
         </div>
       )}
     </header>

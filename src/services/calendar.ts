@@ -306,7 +306,7 @@ export const localCalendar = {
                 'CALSCALE:GREGORIAN',
                 'METHOD:PUBLISH',
                 'BEGIN:VEVENT',
-                `UID:${new Date().getTime()}@neurospark.app`,
+                `UID:${new Date().getTime()}@derekderuiwang.me`,
                 `SUMMARY:${event.title}`,
                 event.description ? `DESCRIPTION:${event.description}` : '',
                 `DTSTART:${formatIcsDate(event.start)}`,

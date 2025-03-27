@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ScrollToTop from '@/components/ScrollToTop';
 
 // Pages
 import Home from '@/pages/Home';
@@ -11,11 +12,11 @@ import Features from '@/pages/Features';
 import HowItWorks from '@/pages/HowItWorks';
 import FAQ from '@/pages/FAQ';
 import NotFound from '@/pages/NotFound';
-import Demo from '@/pages/Demo';
 import Pricing from '@/pages/Pricing';
-import ContactUs from '@/pages/ContactUs';
+import WaitlistSignup from '@/pages/ContactUs';
 import InteractiveDemo from '@/pages/InteractiveDemo';
 import ComingSoon from '@/components/ComingSoon';
+import Waitlist from '@/pages/Waitlist';
 
 const queryClient = new QueryClient();
 
@@ -26,16 +27,17 @@ function App() {
         <Toaster />
         <Sonner />
         <Router>
+          <ScrollToTop />
           <Routes>
             {/* Product presentation routes */}
             <Route path="/" element={<Home />} />
             <Route path="/features" element={<Features />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/demo" element={<Demo />} />
-            <Route path="/interactive-demo" element={<InteractiveDemo />} />
+            <Route path="/try-it-now" element={<InteractiveDemo />} />
             <Route path="/pricing" element={<Pricing />} />
-            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/contact" element={<WaitlistSignup />} />
+            <Route path="/waitlist" element={<WaitlistSignup />} />
 
             {/* Company pages */}
             <Route path="/about" element={<ComingSoon title="About Us" description="Learn more about our team and mission. This page is under development. This is a conceptual demonstration, not the final product." />} />

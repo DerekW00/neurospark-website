@@ -1,15 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { AtSign, MapPin, Phone, MessagesSquare } from 'lucide-react';
+import { AtSign, MapPin, Phone, Sparkles } from 'lucide-react';
+import InterestForm from '@/components/InterestForm';
 
-const ContactUs = () => {
+const WaitlistSignup = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
@@ -18,138 +15,88 @@ const ContactUs = () => {
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-12">
                             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                                Get in Touch
+                                Join Our Exclusive Waitlist
                             </h1>
                             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                                Have questions about NeuroSpark? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
+                                Our mobile app is in high demand and spots are limited. Sign up now to secure early access when we launch.
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                            {/* Contact Form */}
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Send Us a Message</CardTitle>
-                                    <CardDescription>
-                                        Fill out the form below and we'll respond within 24 hours.
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <form className="space-y-6">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            <div className="space-y-2">
-                                                <Label htmlFor="first-name">First Name</Label>
-                                                <Input id="first-name" required />
-                                            </div>
-                                            <div className="space-y-2">
-                                                <Label htmlFor="last-name">Last Name</Label>
-                                                <Input id="last-name" required />
-                                            </div>
-                                        </div>
+                            {/* Waitlist Form */}
+                            <div>
+                                <InterestForm
+                                    title="Reserve Your Spot"
+                                    description="Be among the first to experience the future of ADHD management on your smartphone."
+                                />
 
-                                        <div className="space-y-2">
-                                            <Label htmlFor="email">Email</Label>
-                                            <Input id="email" type="email" required />
-                                        </div>
-
-                                        <div className="space-y-2">
-                                            <Label htmlFor="inquiry-type">Type of Inquiry</Label>
-                                            <Select>
-                                                <SelectTrigger>
-                                                    <SelectValue placeholder="Select an option" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectItem value="general">General Question</SelectItem>
-                                                    <SelectItem value="support">Technical Support</SelectItem>
-                                                    <SelectItem value="billing">Billing Inquiry</SelectItem>
-                                                    <SelectItem value="partnership">Partnership Opportunity</SelectItem>
-                                                </SelectContent>
-                                            </Select>
-                                        </div>
-
-                                        <div className="space-y-2">
-                                            <Label htmlFor="message">Message</Label>
-                                            <Textarea id="message" className="h-32" required />
-                                        </div>
-
-                                        <Button type="submit" className="w-full">Send Message</Button>
-                                    </form>
-                                </CardContent>
-                            </Card>
+                                <div className="mt-6 bg-primary/5 rounded-lg p-4">
+                                    <div className="flex items-center">
+                                        <Sparkles className="h-5 w-5 text-primary mr-2" />
+                                        <p className="text-sm font-medium">Limited spots available for early access!</p>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* Contact Information */}
                             <div className="space-y-8">
                                 <div>
-                                    <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+                                    <h2 className="text-2xl font-bold mb-6">What to Expect</h2>
                                     <div className="space-y-6">
                                         <div className="flex items-start space-x-4">
-                                            <AtSign className="h-6 w-6 text-primary mt-0.5" />
-                                            <div>
-                                                <h3 className="font-medium">Email</h3>
-                                                <p className="text-muted-foreground">support@neurospark.ai</p>
+                                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                <span className="text-primary font-bold">1</span>
                                             </div>
-                                        </div>
-
-                                        <div className="flex items-start space-x-4">
-                                            <Phone className="h-6 w-6 text-primary mt-0.5" />
                                             <div>
-                                                <h3 className="font-medium">Phone</h3>
-                                                <p className="text-muted-foreground">+1 (800) 555-8765</p>
-                                            </div>
-                                        </div>
-
-                                        <div className="flex items-start space-x-4">
-                                            <MapPin className="h-6 w-6 text-primary mt-0.5" />
-                                            <div>
-                                                <h3 className="font-medium">Address</h3>
+                                                <h3 className="font-medium">Early Access</h3>
                                                 <p className="text-muted-foreground">
-                                                    123 Innovation Way<br />
-                                                    Suite 400<br />
-                                                    San Francisco, CA 94105
+                                                    Get priority access before the general public launch
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <Card>
-                                    <CardHeader>
-                                        <CardTitle className="flex items-center">
-                                            <MessagesSquare className="h-5 w-5 mr-2" />
-                                            Live Chat Support
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="mb-6 text-muted-foreground">
-                                            Need immediate assistance? Our support team is available to chat during business hours.
-                                        </p>
-                                        <Button className="w-full">Start Live Chat</Button>
-                                        <p className="mt-4 text-sm text-muted-foreground text-center">
-                                            Available Monday - Friday, 9 AM - 5 PM PT
-                                        </p>
-                                    </CardContent>
-                                </Card>
+                                        <div className="flex items-start space-x-4">
+                                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                <span className="text-primary font-bold">2</span>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-medium">Special Pricing</h3>
+                                                <p className="text-muted-foreground">
+                                                    Exclusive launch discounts for our waitlist members
+                                                </p>
+                                            </div>
+                                        </div>
 
-                                <div>
-                                    <h3 className="text-xl font-semibold mb-4">Frequently Asked Support Questions</h3>
-                                    <div className="space-y-4">
-                                        <div>
-                                            <h4 className="font-medium">How do I reset my password?</h4>
-                                            <p className="text-sm text-muted-foreground">
-                                                Visit the login page and click "Forgot Password" to receive a password reset link.
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <h4 className="font-medium">Can I use NeuroSpark on multiple devices?</h4>
-                                            <p className="text-sm text-muted-foreground">
-                                                Yes! Your NeuroSpark account works on all your devices, and your data syncs automatically.
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <h4 className="font-medium">How do I cancel my subscription?</h4>
-                                            <p className="text-sm text-muted-foreground">
-                                                Go to Account Settings → Billing → Cancel Subscription. You'll have access until the end of your billing period.
-                                            </p>
+                                        <div className="flex items-start space-x-4">
+                                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                                <span className="text-primary font-bold">3</span>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-medium">Additional Resources</h3>
+                                                <p className="text-muted-foreground">
+                                                    Find out more about the team behind NeuroSpark:
+                                                </p>
+                                                <div className="mt-2">
+                                                    <div className="flex items-center text-sm text-muted-foreground mt-1">
+                                                        <AtSign className="h-4 w-4 mr-2 text-primary" />
+                                                        <a href="mailto:derekderuiwang@gmail.com" className="hover:text-foreground transition-colors">
+                                                            derekderuiwang@gmail.com
+                                                        </a>
+                                                    </div>
+                                                    <div className="flex items-center text-sm text-muted-foreground mt-1">
+                                                        <Phone className="h-4 w-4 mr-2 text-primary" />
+                                                        <a href="tel:+15109825319" className="hover:text-foreground transition-colors">
+                                                            +1 (510) 982-5319
+                                                        </a>
+                                                    </div>
+                                                    <div className="flex items-center text-sm text-muted-foreground mt-1">
+                                                        <MapPin className="h-4 w-4 mr-2 text-primary" />
+                                                        <a href="https://derekderuiwang.me" className="hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">
+                                                            derekderuiwang.me
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -163,4 +110,4 @@ const ContactUs = () => {
     );
 };
 
-export default ContactUs; 
+export default WaitlistSignup; 

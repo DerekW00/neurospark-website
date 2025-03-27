@@ -193,11 +193,16 @@ const InteractiveDemo = () => {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-12">
                             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                                Try NeuroSpark Now
+                                Free Trial Experience
                             </h1>
                             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                                Experience how NeuroSpark breaks down overwhelming tasks into manageable steps. Enter a task below to see it in action.
+                                Experience how NeuroSpark helps you manage ADHD and stay on track with your commitments. Try our task breakdown feature below.
                             </p>
+                            <div className="flex items-center justify-center mt-4">
+                                <div className="bg-primary/10 text-primary text-sm font-medium px-4 py-1 rounded-full">
+                                    No account or credit card needed
+                                </div>
+                            </div>
                         </div>
 
                         <div className="mb-8">
@@ -567,6 +572,21 @@ const InteractiveDemo = () => {
                                 </div>
                             </div>
                         )}
+                    </div>
+                </section>
+
+                {/* Add waitlist CTA at the bottom */}
+                <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary/5">
+                    <div className="max-w-6xl mx-auto text-center">
+                        <h2 className="text-3xl font-bold tracking-tight mb-4">
+                            Like What You See?
+                        </h2>
+                        <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+                            Join our waitlist to be among the first to access the full NeuroSpark experience on our mobile app when we launch.
+                        </p>
+                        <Button size="lg" className="bg-primary" asChild>
+                            <Link to="/waitlist">Join Our Waitlist</Link>
+                        </Button>
                     </div>
                 </section>
             </main>
