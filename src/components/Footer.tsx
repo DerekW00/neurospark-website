@@ -1,58 +1,108 @@
 import React from 'react';
-import { Brain } from 'lucide-react';
+import { Brain, Heart, Github, Twitter, Mail, Phone, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DisclaimerBanner from './DisclaimerBanner';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import InterestForm from './InterestForm';
 
 const Footer = () => {
   return (
-    <footer className="bg-muted/30 border-t border-border py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <Brain className="h-6 w-6 text-primary" />
-              <span className="text-xl font-semibold tracking-tight">NeuroSpark</span>
+    <>
+      <DisclaimerBanner />
+      <footer className="bg-muted/30 border-t border-border py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            <div className="md:col-span-1">
+              <div className="flex items-center space-x-2 mb-4">
+                <Brain className="h-6 w-6 text-primary" />
+                <span className="text-xl font-semibold tracking-tight">NeuroSpark</span>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                An ADHD-friendly commitment coach that helps you break down goals into achievable steps.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <Mail className="h-4 w-4 mr-2" />
+                  <a href="mailto:hello@neurospark.ai" className="hover:text-foreground transition-colors">hello@neurospark.ai</a>
+                </div>
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <Phone className="h-4 w-4 mr-2" />
+                  <a href="tel:+11234567890" className="hover:text-foreground transition-colors">(123) 456-7890</a>
+                </div>
+              </div>
             </div>
-            <p className="text-muted-foreground">
-              An ADHD-friendly commitment coach that helps you break down goals into achievable steps.
+
+            <div>
+              <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Product</h3>
+              <ul className="space-y-3">
+                <li><Link to="/features" className="text-muted-foreground hover:text-foreground transition-colors">Features</Link></li>
+                <li><Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">How it Works</Link></li>
+                <li><Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</Link></li>
+                <li><Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors">FAQ</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Demos</h3>
+              <ul className="space-y-3">
+                <li><Link to="/demo" className="text-muted-foreground hover:text-foreground transition-colors">Video Demos</Link></li>
+                <li><Link to="/interactive-demo" className="text-muted-foreground hover:text-foreground transition-colors">Interactive Demo</Link></li>
+                <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact Sales</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Company</h3>
+              <ul className="space-y-3">
+                <li><Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About Us</Link></li>
+                <li><Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">Blog</Link></li>
+                <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+                <li><Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</Link></li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-1">
+              <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Join Our Community</h3>
+              <InterestForm
+                title="Never miss an update"
+                description="Get notified about new features and early access opportunities."
+              />
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
+            <p>© {new Date().getFullYear()} NeuroSpark. All rights reserved.</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              <span className="font-medium">Prototype:</span> This website demonstrates the NeuroSpark concept and is not a fully functional product.
             </p>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Product</h3>
-            <ul className="space-y-3">
-              <li><Link to="/features" className="text-muted-foreground hover:text-foreground transition-colors">Features</Link></li>
-              <li><Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">How it Works</Link></li>
-              <li><Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</Link></li>
-              <li><Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors">FAQ</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Demos</h3>
-            <ul className="space-y-3">
-              <li><Link to="/demo" className="text-muted-foreground hover:text-foreground transition-colors">Video Demos</Link></li>
-              <li><Link to="/interactive-demo" className="text-muted-foreground hover:text-foreground transition-colors">Interactive Demo</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact Sales</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider">Company</h3>
-            <ul className="space-y-3">
-              <li><a href="https://neurospark.ai/about" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a></li>
-              <li><a href="https://neurospark.ai/blog" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
-              <li><a href="https://neurospark.ai/privacy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="https://neurospark.ai/terms" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a></li>
-            </ul>
+          <div className="mt-8 text-center text-sm text-muted-foreground">
+            <div className="flex items-center justify-center space-x-4">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <div className="flex items-center text-sm text-muted-foreground">
+                <span className="mr-1">Made with</span>
+                <Heart className="h-4 w-4 text-red-500 mx-1" />
+                <span>for neurodivergent brains</span>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} NeuroSpark. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
