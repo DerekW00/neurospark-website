@@ -26,7 +26,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Router>
+        <Router basename={import.meta.env.DEV ? '/' : '/neurospark-website'}>
           <ScrollToTop />
           <Routes>
             {/* Product presentation routes */}
