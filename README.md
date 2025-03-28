@@ -1,71 +1,62 @@
 # NeuroSpark
 
-A cross-platform (iOS and web) application built with a monorepo architecture.
+NeuroSpark is a comprehensive ADHD management tool designed to help people with ADHD reach their goals through personalized coaching, accountability features, and productivity tools.
+
+## Live Demo
+
+Visit the live demo: [https://derekw00.github.io/neurospark-website/](https://derekw00.github.io/neurospark-website/)
+
+## Features
+
+- **AI-powered coaching**: Get personalized guidance tailored to your needs
+- **Task breakdown**: Transform overwhelming tasks into manageable steps
+- **Accountability tools**: Stay on track with reminders and progress tracking
+- **ADHD-friendly interface**: Designed specifically for neurodivergent users
+- **Responsive design**: Works on desktop, tablet, and mobile devices
+
+## Technology Stack
+
+- React 18 with TypeScript
+- Vite for fast development and optimized builds
+- TailwindCSS for styling
+- React Router for navigation
+- Radix UI components for accessible UI elements
+- React Query for data fetching
+- GitHub Pages for deployment
 
 ## Project Structure
 
-This project is organized as a monorepo using Yarn workspaces:
-
-- `packages/shared` - Shared code between platforms (models, utilities, interfaces)
-- `packages/web` - Web application built with React and Vite
-- `packages/ios` - iOS application built with React Native
-- `packages/config` - Shared configuration files (TypeScript, ESLint)
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v16+)
-- Yarn
-- For iOS: XCode and CocoaPods
-
-### Installation
-
-```bash
-# Install dependencies for all packages
-yarn install
 ```
-
-### Development
-
-```bash
-# Start web development server
-yarn dev:web
-
-# Start iOS development server
-yarn dev:ios
+neurospark-website/
+├── public/              # Static assets
+│   ├── components/      # Reusable UI components
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utility functions
+│   ├── pages/           # Page components
+│   ├── services/        # API and service integrations
+│   └── styles/          # Global CSS styles
+├── api/                 # API endpoints
+└── .github/workflows/   # GitHub Actions workflows
 ```
-
-### Building
-
-```bash
-# Build web application
-yarn build:web
-
-# Build iOS application
-yarn build:ios
-```
-
-## Architecture
-
-The application follows a monorepo architecture with shared code between platforms. The shared package contains platform-agnostic code like data models, utilities, and service interfaces, while the platform-specific packages (web, iOS) implement the UI and platform-specific services.
-
-Firebase integration is handled through a common interface defined in the shared package, with platform-specific implementations in each application package.
-
-# NeuroSpark Website
-
-NeuroSpark is a comprehensive ADHD management tool that helps people with ADHD reach their goals by providing personalized coaching, accountability, and productivity features.
 
 ## Development
 
-1. Install dependencies:
+### Prerequisites
+
+- Node.js (v18+)
+- npm or yarn
+
+### Getting Started
+
+1. Clone the repository:
 ```bash
-npm install
+git clone https://github.com/DerekW00/neurospark-website.git
+cd neurospark-website
 ```
 
-2. Copy the environment variable example file and update values as needed:
+2. Install dependencies:
 ```bash
-cp .env.example .env
+npm install
 ```
 
 3. Start the development server:
@@ -73,36 +64,47 @@ cp .env.example .env
 npm run dev
 ```
 
-## Vercel Deployment
+4. Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-### Deployment Steps
+### Building for Production
 
-1. Connect your GitHub repository to Vercel.
+Build the project for production:
+```bash
+npm run build
+```
 
-2. Configure the project settings:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-   - Install Command: `npm install`
+Preview the production build locally:
+```bash
+npm run preview
+```
 
-3. Add environment variables from your `.env` file to your Vercel project settings.
+## Deployment
 
-4. Deploy your application. Vercel will automatically build and deploy your application whenever you push to your default branch.
+### GitHub Pages
 
-### API Endpoints
+Deploy to GitHub Pages:
+```bash
+npm run deploy
+```
 
-This project uses Vercel Serverless Functions for backend functionality. The API endpoints are located in the `api` directory.
+This runs the build script and pushes the build output to the `gh-pages` branch.
 
-Available endpoints:
-- `/api/subscribe` - Handles form submissions for waitlist signups
+### Automatic Deployment
 
-See the `api/README.md` file for more details about API endpoints.
+The project is set up with GitHub Actions to automatically deploy to GitHub Pages whenever changes are pushed to the main branch. See the workflow configuration in `.github/workflows/deploy.yml`.
 
-## Environment Configuration
+## Environment Variables
 
-Important environment variables:
+Copy the example environment file and configure as needed:
+```bash
+cp .env.example .env
+```
 
-- `VITE_API_BASE_URL`: URL for your API (defaults to `/api` for Vercel deployment)
+Available environment variables:
+- `VITE_API_BASE_URL`: Base URL for API requests
 - `VITE_ENABLE_ANALYTICS`: Enable/disable analytics
 - `VITE_APP_VERSION`: Application version
 
-See `.env.example` for all available environment variables.
+## License
+
+This project is for demonstration purposes only.
